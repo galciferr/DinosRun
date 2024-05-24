@@ -220,8 +220,7 @@ def main():
         SCREEN.fill((255, 255, 255))
         userInput = pygame.key.get_pressed()
 
-        player.draw(SCREEN)
-        player.update(userInput, death_count)
+
 
         if len(enemys) == 0:
             if random.randint(0, 2) == 0:
@@ -237,8 +236,10 @@ def main():
             if player.dinos_rect.colliderect(enemy.rect):
                 death_count += 1
                 player.update(userInput, death_count)
-                player.draw(SCREEN)
                 SCREEN.blit(GAME_OVER, (SCREEN_WIDTH // 2 - 140, SCREEN_HEIGHT // 2 - 140))
+
+        player.draw(SCREEN)
+        player.update(userInput, death_count)
 
         background()
 
